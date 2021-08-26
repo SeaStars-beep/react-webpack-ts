@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <title>
+        <%= title %>
+    </title>
+</head>
+
+<body>
+    <div id="app"></div>
+</body>
+<script type="text/javascript" src="https://mapapi.qq.com/web/mapComponents/geoLocation/v/geolocation.min.js"></script>
+<script>
+    const width = window.innerWidth || document.documentElement.clientWidth;
+    document.documentElement.style.fontSize = width / 3.75 + 'px';
+    document.body.style.fontSize = 16 + 'px';
+</script>
+<script>
+    const KEY = 'AP4BZ-UTMKU-L3UVN-4GWWL-RT6O5-WXFTB';
+    const geolocationT = new qq.maps.Geolocation(KEY, "myapp");
+    /**
+     * @parmas 注册自定义事件
+    */
+    const hanldeNewEvent = (data) => {
+        const storageEvent = new CustomEvent('setEvent', {
+            detail: {//数据必须放在detail对象里面
+                ...data
+            },
+            bubbles: true,    //是否冒泡
+            cancelable: false //是否取消默认事件
+        });
+        window.dispatchEvent(storageEvent);
+    };
+    /**
+     * @parmas 公共回调事件处理
+    */
+    const handleCommonCallback = (data, scriptNode) => {
+        const { status, result } = data;
+        if (status !== 0) {
+            console.info('获取位置信息失败', status);
+            return;
+        }
+        console.info('pos-data', data.result)
+        const { ad_info, location } = result;
+        const [a, b, c, d] = ad_info.adcode.toString();
+        const { lng, lat } = location;
+        // 参照腾讯地图省市区规则说明
+        // https://lbs.qq.com/service/webService/webServiceGuide/webServiceDistrict#6
+        const PROVINCE_CODE = `${a}${b}0000`;
+        const CITY_CODE = `${a}${b}${c}${d}00`;
+        const posdata = {
+            codeInfo: [PROVINCE_CODE, CITY_CODE],
+            longitude: lng,
+            latitude: lat,
+        };
+        hanldeNewEvent(posdata);
+        scriptNode.parentNode.removeChild(scriptNode);
+    }
+    /**
+     * @parmas url 注册自定义事件 return script node
+    */
+    const getScriptNode = (url) => {
+        const temScript = document.createElement('script');
+        temScript.src = url;
+        document.body.appendChild(temScript);
+        return temScript;
+    }
+    const handleSuccess = (arg) => {
+        const { lat, lng } = arg;
+        const ReqUrl = `https://apis.map.qq.com/ws/geocoder/v1/?location=${lat},${lng}&key=${KEY}&get_poi=0&output=jsonp&callback=handlePosCallback`;
+        const temScript = getScriptNode(ReqUrl);
+        window['handlePosCallback'] = (data) => handleCommonCallback(data, temScript);
+    }
+    const handleError = (err) => {
+        // 使用ip 获取位置信息
+        const ReqUrl = `https://apis.map.qq.com/ws/location/v1/ip?key=${KEY}&output=jsonp&callback=handleIpCallback`;
+        const temScript = getScriptNode(ReqUrl);
+        window['handleIpCallback'] = (data) => handleCommonCallback(data, temScript);
+    }
+    geolocationT.getLocation(handleSuccess, handleError);
+</script>
+</html>

@@ -1,0 +1,107 @@
+.screen-my-car {
+  width: 100%;
+  height: auto;
+  background: #f7f7f7;
+  padding-top: 16px;
+
+  .my-car-map {
+    width: calc(100% - 24px);
+    height: 94px;
+    background: #ffffff;
+    border-radius: 6px;
+    margin-bottom: 7px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 12px;
+
+    > img {
+      width: 50px;
+      height: 50px;
+      margin: 19px 12px 0 13px;
+    }
+
+    .my-car-content {
+      height: auto;
+      flex: 1;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+
+      .license-plate {
+        font-size: 16px;
+        font-weight: 600;
+        color: #1e1e1e;
+        margin-top: 26px;
+      }
+
+      .may-car-type {
+        font-size: 12px;
+        height: 24px;
+        line-height: 24px;
+        font-weight: 400;
+        color: #424242;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    .my-car-edit {
+      width: 50px;
+      height: auto;
+      margin: 37px 15px 0 10px;
+
+      > span:first-child {
+        width: 15px;
+        height: 15px;
+        background: url('../../../../assets/images/edit.png') no-repeat;
+        background-size: 100%;
+        display: inline-block;
+      }
+
+      > span:last-child {
+        width: 16px;
+        height: 17px;
+        background: url('../../../../assets/images/delete.png') no-repeat;
+        background-size: 100%;
+        display: inline-block;
+        margin-left: 15px;
+      }
+    }
+  }
+
+  .add-vehicle {
+    width: calc(100% - 40px);
+    height: 44px;
+    background: #1676ff;
+    margin-left: 20px;
+    border-radius: 22px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 600;
+    color: #ffffff;
+    line-height: 44px;
+    margin-top: 32px;
+  }
+}
+
+.am-modal-alert-content {
+  font-size: 16px;
+  font-weight: 500;
+  color: #212121;
+  padding-bottom: 0.2rem;
+  padding-top: 0.25rem;
+}
+
+.am-modal-button-group-h .am-modal-button:first-child {
+  font-size: 15px;
+  font-weight: 400;
+  color: #727272;
+}
+
+.am-modal-button-group-h .am-modal-button:last-child {
+  font-size: 15px;
+  font-weight: 500;
+  color: #1676ff;
+}

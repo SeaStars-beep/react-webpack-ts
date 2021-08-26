@@ -1,0 +1,254 @@
+.screen-car-model-select {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  background: #f7f7f7;
+  overflow: auto;
+
+  .car-brand-select-wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+
+    .am-search-synthetic-ph-icon {
+      width: 15px;
+      height: 15px;
+      background: url('../../../../assets/images/search.png') no-repeat;
+      background-size: 100%;
+      margin-left: 13px;
+    }
+
+    .model-serarch-wrap {
+      width: 100%;
+      height: 35px;
+      background-color: #fff;
+      margin-bottom: 10px;
+      border-radius: 18px;
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+
+      .model-serarch {
+        width: calc(100% - 50px);
+        margin-left: 10px;
+        border: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 400;
+        color: #585858;
+      }
+
+      .model-serarch::-webkit-input-placeholder {
+        font-size: 12px;
+        font-weight: 400;
+        color: #bfbfbf;
+      }
+    }
+
+    .model-general-wrap {
+      width: 100%;
+      box-sizing: border-box;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 6px;
+      height: 170px;
+      display: flex;
+      flex-wrap: wrap;
+
+      .model-general-item {
+        flex: 1 0 25%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        margin-bottom: 20px;
+
+        .model-general-item-img {
+          width: auto;
+          height: 40px;
+          display: inline-block;
+        }
+
+        .model-general-item-name {
+          font-size: 13px;
+          color: #585858;
+          font-weight: 400;
+        }
+      }
+    }
+
+    .model-detail-wrap {
+      width: 100%;
+      height: calc(100% - 225px);
+      overflow: auto;
+      position: relative;
+      background-color: #fff;
+      margin-top: 10px;
+
+      .model-detail-item-wrap {
+        width: 100%;
+        border-radius: 6px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+
+        .model-detail-item {
+          width: calc(100% - 12px);
+          border-bottom: 1px solid #ebebeb;
+
+          .car-model-first-letter {
+            font-size: 16px;
+            font-weight: 600;
+            color: #1e1e1e;
+            padding-top: 17px;
+          }
+
+          .car-model-info {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            height: 52px;
+          }
+
+          .car-model-ico {
+            width: auto;
+            height: 40px;
+          }
+
+          .car-model-name {
+            padding-left: 15px;
+            font-size: 13px;
+            color: #585858;
+            font-weight: 400;
+          }
+        }
+      }
+    }
+
+    .model-slide-wrap {
+      z-index: 10;
+      width: 30px;
+      position: fixed;
+      bottom: 25px;
+      right: 17px;
+      -moz-user-select: none;
+      /* Firefox私有属性 */
+      -webkit-user-select: none;
+      /* WebKit内核私有属性 */
+      -ms-user-select: none;
+      /* IE私有属性(IE10及以后) */
+      -khtml-user-select: none;
+      /* KHTML内核私有属性 */
+      -o-user-select: none;
+      /* Opera私有属性 */
+      user-select: none;
+
+      /* CSS3属性 */
+      .model-slide-wrap-inner {
+        margin-left: 7px;
+        border-radius: 7px;
+        width: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px 0;
+        background: #f7f7f7;
+
+        span {
+          display: inline-block;
+          width: 100%;
+          text-align: center;
+          font-size: 10px;
+          font-weight: 400;
+          color: #1e1e1e;
+          padding-top: 5px;
+        }
+      }
+    }
+  }
+
+  //  汽车商标选择 -> 品牌选择
+  //  品牌选择 -> 已选车型
+  .car-class-select-wrap {
+    width: 100%;
+    height: 100%;
+
+    .car-class-select-tit {
+      height: 50px;
+      text-align: left;
+      font-size: 16px;
+      line-height: 50px;
+      color: #1e1e1e;
+      font-weight: 600;
+
+      .car-class-select-tit-back {
+        color: #626262;
+        font-size: 12px;
+        font-weight: 400;
+      }
+    }
+
+    .class-general-wrap {
+      width: 100%;
+      height: auto;
+      overflow: auto;
+      background-color: #fff;
+      border-radius: 8px;
+
+      .cur-brand-info {
+        width: calc(100% - 12px);
+        height: 59px;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        font-size: 16px;
+        margin-left: 12px;
+        border-bottom: 1px solid #ebebeb;
+
+        .cur-brand-ico {
+          height: 50px;
+        }
+
+        .cur-brand-name {
+          padding-left: 12px;
+          font-size: 16px;
+          font-weight: 400;
+          color: #1e1e1e;
+        }
+      }
+
+      .car-class-item-wrap {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        align-items: flex-end;
+        width: 100%;
+        height: calc(100% - 60px);
+        overflow: auto;
+
+        .car-class-item {
+          width: calc(100% - 12px);
+          border-bottom: 1px solid #ebebeb;
+          text-align: left;
+          font-size: 16px;
+          line-height: 42px;
+          word-wrap: break-word;
+          font-weight: 400;
+          color: #1e1e1e;
+
+          &:last-child {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}

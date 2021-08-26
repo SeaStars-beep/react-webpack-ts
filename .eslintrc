@@ -1,0 +1,12 @@
+{
+    "rules":{
+        "quotes": ["error", "single"],//引号类型 `` "" ''
+        "indent": ["warn", 2, { "SwitchCase": 1 }],
+        "no-var": "error" // 不能使用var声明变量
+    },
+    "parserOptions": {
+        "ecmaVersion": 7,
+        "sourceType": "module"
+    },
+    "parser": "@typescript-eslint/parser"
+}
