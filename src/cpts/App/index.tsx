@@ -9,12 +9,6 @@ import {
 import './index.less';
 
 import useViewModel from './view.model';
-// import ScreenHome from '@src/cpts/screens/ScreenHome';
-// import ScreenStoreSearch from '@src/cpts/screens/ScreenStoreSearch';
-// import ScreenMyCar from '@src/cpts/screens/ScreenMyCar';
-// import ScreenCarInfoEnter from '@src/cpts/screens/ScreenCarInfoEnter';
-// import ScreenModelSelect from '@src/cpts/screens/ScreenModelSelect';
-
 const ScreenHome = lazy(() => import('@src/cpts/screens/ScreenHome/Screen'));
 const ScreenStoreSearch = lazy(
   () => import('@src/cpts/screens/ScreenStoreSearch/Screen')
@@ -56,7 +50,7 @@ export const rounters = [
 ];
 
 export const App = observer(() => {
-  const { loading } = useViewModel();
+  useViewModel();
   /**
    *
    * @returns Route   路由守卫

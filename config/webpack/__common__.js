@@ -45,7 +45,9 @@ module.exports = {
   },
   plugins: [
     new Dotenv(),
-    new MiniCssExtractPlugin(),
+    new MiniCssExtractPlugin({
+      filename: 'css/[name][hash].css'
+    }),
     new CssMinimizerPlugin()
   ],
   optimization: { // https://webpack.docschina.org/plugins/split-chunks-plugin/  公共模块抽离

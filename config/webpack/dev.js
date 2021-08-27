@@ -13,7 +13,7 @@ module.exports = merge(commonConfig, {
   devtool: 'inline-source-map',
   mode: 'development',
   output: {
-    filename: '[name].[hash].js',
+    filename: 'js/[name].[hash].js',
     path: path.resolve(__dirname, '../../dist'),
   },
   devServer: getServer(
@@ -26,7 +26,7 @@ module.exports = merge(commonConfig, {
       filename: 'index.html',
       template: 'index.ejs',
       templateParameters: {
-        title: '特惠洗车',
+        title: 'xx',
       },
     }),
   ],

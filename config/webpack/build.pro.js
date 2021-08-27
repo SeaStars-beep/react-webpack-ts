@@ -7,7 +7,7 @@ module.exports = merge(commonConfig, {
   entry: './src/main.ts',
   mode: 'production',
   output: {
-    filename: '[name].[hash].js',
+    filename: 'js/[name].[hash].js',
     path: path.resolve(__dirname, '../../dist'),
   },
   plugins: [
@@ -15,7 +15,7 @@ module.exports = merge(commonConfig, {
       filename: 'index.html',
       template: 'index.ejs',
       templateParameters: {
-        title: 'xxx',
+        title: '特惠洗车',
       },
     }),
   ],
